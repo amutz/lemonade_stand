@@ -1,0 +1,13 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+install:
+ - docker build -t lemonade_stand .
+
+script:
+ - docker run lemonade_stand rake test
+
