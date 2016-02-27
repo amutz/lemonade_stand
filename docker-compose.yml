@@ -1,16 +1,13 @@
-version: '2'
-
-services:
-  web:
-    build: .
-    ports:
-      - "3000"
-    links:
-      - db
-  db:
-    image: library/mysql:latest
-    ports:
-      - "3306"
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+web:
+  build: .
+  ports:
+    - "3000"
+  links:
+    - db
+db:
+  image: library/mysql:latest
+  ports:
+    - "3306"
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
