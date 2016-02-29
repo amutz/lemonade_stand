@@ -1,10 +1,10 @@
-web:
+lemonade_stand_web:
   build: .
   ports:
     - "3000"
   links:
-    - db
-db:
+    - lemonade_stand_db
+lemonade_stand_db:
   image: library/mysql:latest
   ports:
     - "3306"
