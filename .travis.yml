@@ -9,7 +9,7 @@ install:
  - docker-compose up -d
 
 script:
- - docker-compose run -e RAILS_ENV=test web rake db:create
- - docker-compose run -e RAILS_ENV=test web rake db:migrate
- - docker-compose run -e RAILS_ENV=test web rake test
+ - docker-compose run -e RAILS_ENV=test lemonade_stand_web rake db:create
+ - docker-compose run -e RAILS_ENV=test lemonade_stand_web rake db:migrate
+ - docker-compose run -e RAILS_ENV=test lemonade_stand_web rake test
 
