@@ -4,6 +4,8 @@ lemonade_stand_web:
     - "3000"
   links:
     - lemonade_stand_db
+  environment:
+    - DOCKER_FIX='                                        '
 lemonade_stand_db:
   image: library/mysql:latest
   ports:
