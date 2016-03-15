@@ -1,15 +1,24 @@
-lemonade_stand_web:
-  build: .
-  ports:
-    - "3000"
-  links:
-    - lemonade_stand_db
-  environment:
-    - DOCKER_FIX='                                        '
-lemonade_stand_db:
-  image: library/mysql:latest
-  ports:
-    - "3306"
-  environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+version: '2'
 
+services:
+  lemonade_stand_web:
+    build: .
+    ports:
+      - "3000"
+    links:
+      - lemonade_stand_db
+    environment:
+      - DOCKER_FIX='                                        '
+    networks:
+      - "internal"
+  lemonade_stand_db:
+    image: library/mysql:latest
+    ports:
+      - "3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - "internal"
+networks:
+  internal:
+    driver: "bridge"
